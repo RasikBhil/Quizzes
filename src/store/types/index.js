@@ -1,0 +1,5 @@
+const PREFIX = '@@questions';
+
+export const GET_QUESTIONS = `${PREFIX}/GET_QUESTIONS`;
+export const GET_QUESTIONS_SUCCESS = `${PREFIX}/GET_QUESTIONS_SUCCESS`;
+export const GET_QUESTIONS_FAIL = `${PREFIX}/GET_QUESTIONS_FAIL`;
