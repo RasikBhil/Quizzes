@@ -6,13 +6,15 @@ const intialState = {
 };
 
 const reducer = (state = intialState, action) => {
+  console.log('LOGGER', action);
   switch (action.type) {
     case Types.GET_QUESTIONS_SUCCESS:
       const {results} = action.payload;
       let question;
       if (results) {
         question = results.map((item) => {
-          const answers = [...item.incorrect_answers, item.correct_answer];
+          const concatAns = [...item.incorrect_answers, item.correct_answer];
+          const answers = getRandomAns(concatAns);
           return {...item, answers};
         });
       }

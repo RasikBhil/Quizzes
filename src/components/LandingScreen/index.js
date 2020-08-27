@@ -1,42 +1,62 @@
-import React, {useEffect} from 'react';
-import {SafeAreaView, View, Text, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import {Neomorph} from '../common';
 import {getQuestions} from '../../store/actions';
-import getRandomAns from '../../utils/getRandomAns';
+import {SkypeIndicator} from 'react-native-indicators';
 import {connect} from 'react-redux';
-const LandingScreen = ({navigation, getQuestions, questions}) => {
-  console.log('---------- SCREEN BEFORE', questions);
+import {colors} from '../../theme';
 
-  // if (questions?.length !== 0) {
-  //   questions.map((item) => {
-  //     const ans = [...item.incorrect_answers, item.correct_answer];
-  //     console.log('RANDOM ANS', getRandomAns(ans));
-  //     //console.log('------ANS', ans);
-  //   });
-  // }
+const LandingScreen = ({navigation, getQuestions}) => {
+  const [Loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    getQuestions();
-  }, []);
+  const onStartQuiz = () => {
+    const func = async () => {
+      try {
+        setLoading(true);
+        await getQuestions();
+      } finally {
+        setLoading(false);
+        navigation.navigate('Quiz');
+      }
+    };
+    func();
+  };
 
-  return (
-    <SafeAreaView style={{flex: 1}}>
-      <View
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          flex: 1,
-          backgroundColor: 'rgb(222,233,253)',
-        }}>
+  const ContentView = () => {
+    if (!Loading) {
+      return (
         <Neomorph style={{height: 40, alignItems: 'center'}}>
-          <TouchableOpacity onPress={() => navigation.navigate('Quiz')}>
+          <TouchableOpacity onPress={() => onStartQuiz()}>
             <Text style={{fontWeight: 'bold'}}>{'START QUIZ'}</Text>
           </TouchableOpacity>
         </Neomorph>
-      </View>
+      );
+    } else {
+      return <SkypeIndicator />;
+    }
+  };
+
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <View style={s.container}>{ContentView()}</View>
     </SafeAreaView>
   );
 };
+
+const s = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+    backgroundColor: colors.jordyBlue,
+  },
+});
 
 const mapStateToProps = ({Quiz: {questions}}) => ({questions});
 
