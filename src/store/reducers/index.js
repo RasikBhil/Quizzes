@@ -3,6 +3,7 @@ import getRandomAns from '../../utils/getRandomAns';
 
 const intialState = {
   questions: [],
+  score: 0,
 };
 
 const reducer = (state = intialState, action) => {
@@ -19,6 +20,8 @@ const reducer = (state = intialState, action) => {
         });
       }
       return {...state, questions: question};
+    case Types.COUNT_SCORE:
+      return {...state, score: action.payload};
     default:
       return {...state};
   }

@@ -6,12 +6,18 @@ import QuestionMark from '../../assets/icons/question.png';
 import Answers from './widget/Answers';
 import {scale} from 'react-native-size-matters';
 import {colors} from '../../theme';
+import {countScore} from '../../store/actions';
+import ScoreBoard from './widget/ScoreBoard';
+import {ModelContainer} from '../common';
 
-const QuizScreen = ({questions}) => {
+const QuizScreen = ({questions, countScore}) => {
   const [currentQue, setCurrentQue] = useState(0);
   const [press, setPress] = useState(false);
+  const [isVisible, setVisible] = useState(false);
 
-  const onAnswer = () => {
+  const onAnswer = (answer) => {
+    console.log('ANSWER _____', answer);
+    countScore(answer);
     setPress(true);
     if (currentQue !== 9) {
       setTimeout(() => {
@@ -21,10 +27,16 @@ const QuizScreen = ({questions}) => {
     } else {
       setTimeout(() => {
         setPress(false);
-        alert('Quiz Finished');
+        setVisible(true);
+        // alert('Quiz Finished');
       }, 1000);
     }
   };
+
+  const onClose = () => {
+    setVisible(false);
+  };
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={s.container}>
@@ -36,11 +48,15 @@ const QuizScreen = ({questions}) => {
           />
         </View>
         <Answers
-          onPress={() => onAnswer()}
+          onPress={onAnswer}
           press={press}
           correctAnswer={questions[currentQue].correct_answer}
           answers={questions[currentQue].answers}
         />
+        <ScoreBoard />
+        <View>
+          <ModelContainer isVisible={isVisible} onClose={() => onClose()} />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -69,4 +85,4 @@ const s = StyleSheet.create({
 });
 const mapStateToProps = ({Quiz: {questions}}) => ({questions});
 
-export default connect(mapStateToProps, {})(QuizScreen);
+export default connect(mapStateToProps, {countScore})(QuizScreen);

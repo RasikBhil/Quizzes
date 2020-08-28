@@ -10,7 +10,7 @@ const Answers = ({answers, onPress, correctAnswer, press}) => {
         return (
           <TouchableOpacity
             key={index}
-            onPress={onPress}
+            onPress={() => onPress(correctAnswer === item)}
             style={{
               ...s.container,
               backgroundColor: press
@@ -40,7 +40,7 @@ const s = StyleSheet.create({
     paddingHorizontal: '5%',
     justifyContent: 'space-between',
     marginTop: 30,
-    flex: 0,
+    flex: 1,
   },
   container: {
     width: '40%',

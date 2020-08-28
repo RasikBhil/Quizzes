@@ -1,2 +1,3 @@
 import Neomorph from './Neomorph';
-export {Neomorph};
+import ModelContainer from './Modal';
+export {Neomorph, ModelContainer};
