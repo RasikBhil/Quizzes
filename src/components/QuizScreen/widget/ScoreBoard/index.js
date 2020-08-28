@@ -4,10 +4,12 @@ import {scale} from 'react-native-size-matters';
 import {connect} from 'react-redux';
 const ScoreBoard = ({score}) => {
   return (
-    <View style={s.container}>
-      <Text style={s.textbold}>{'SCOREBOARD'}</Text>
-      <View style={s.scoreContainer}>
-        <Text style={{fontWeight: 'bold'}}>{`SCORE : ${score}/10`}</Text>
+    <View style={{flex: 0.5}}>
+      <View style={s.container}>
+        <Text style={s.textbold}>{'SCOREBOARD'}</Text>
+        <View style={s.scoreContainer}>
+          <Text style={{fontWeight: 'bold'}}>{`SCORE : ${score}/10`}</Text>
+        </View>
       </View>
     </View>
   );
@@ -15,7 +17,7 @@ const ScoreBoard = ({score}) => {
 
 const s = StyleSheet.create({
   container: {
-    flex: 0.5,
+   // flex: 0.5,
     paddingVertical: 5,
     alignItems: 'center',
     backgroundColor: 'cyan',

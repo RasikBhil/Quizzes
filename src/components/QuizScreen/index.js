@@ -16,7 +16,6 @@ const QuizScreen = ({questions, countScore}) => {
   const [isVisible, setVisible] = useState(false);
 
   const onAnswer = (answer) => {
-    console.log('ANSWER _____', answer);
     countScore(answer);
     setPress(true);
     if (currentQue !== 9) {
@@ -28,7 +27,6 @@ const QuizScreen = ({questions, countScore}) => {
       setTimeout(() => {
         setPress(false);
         setVisible(true);
-        // alert('Quiz Finished');
       }, 1000);
     }
   };

@@ -3,6 +3,9 @@ import {combineReducers} from 'redux';
 import thunk from 'redux-thunk';
 import {createStore, applyMiddleware} from 'redux';
 import {createPromise} from 'redux-promise-middleware';
+import {persistStore, persistReducer} from 'redux-persist';
+import AsyncStorage from '@react-native-community/async-storage';
+
 export const PromiseStatus = {
   START: 'START',
   SUCCESS: 'SUCCESS',
@@ -17,12 +20,21 @@ export const reduxPromise = createPromise({
   ],
 });
 
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+};
+
 const reducers = combineReducers({Quiz});
+const persistedReducer = persistReducer(persistConfig, reducers);
+
 const preloadedState = {};
 const store = createStore(
-  reducers,
+  persistedReducer,
   preloadedState,
   applyMiddleware(thunk, reduxPromise),
 );
 
-export default store;
+const persistor = persistStore(store);
+
+export {persistor, store};
