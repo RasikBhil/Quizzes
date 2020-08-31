@@ -6,14 +6,23 @@ import QuestionMark from '../../assets/icons/question.png';
 import Answers from './widget/Answers';
 import {scale} from 'react-native-size-matters';
 import {colors} from '../../theme';
-import {countScore} from '../../store/actions';
+import {countScore, clearState, getQuestions} from '../../store/actions';
+import {SkypeIndicator} from 'react-native-indicators';
 import ScoreBoard from './widget/ScoreBoard';
 import {ModelContainer} from '../common';
 
-const QuizScreen = ({questions, countScore, navigation}) => {
+const QuizScreen = ({
+  questions,
+  countScore,
+  navigation,
+  clearState,
+  score,
+  getQuestions,
+}) => {
   const [currentQue, setCurrentQue] = useState(0);
   const [press, setPress] = useState(false);
   const [isVisible, setVisible] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const onAnswer = (answer) => {
     countScore(answer);
@@ -34,31 +43,64 @@ const QuizScreen = ({questions, countScore, navigation}) => {
   const onClose = () => {
     setVisible(false);
     navigation.navigate('Landing');
+    clearState();
   };
 
-  return (
-    <SafeAreaView style={{flex: 1}}>
-      <View style={s.container}>
-        <View style={s.queContainer}>
-          <Image style={s.image} source={QuestionMark} />
-          <HTML
-            html={questions[currentQue].question}
-            baseFontStyle={{fontSize: 16, fontWeight: 'bold'}}
-          />
-        </View>
-        <Answers
-          onPress={onAnswer}
-          press={press}
-          correctAnswer={questions[currentQue].correct_answer}
-          answers={questions[currentQue].answers}
-        />
-        <ScoreBoard />
-        <View>
-          <ModelContainer isVisible={isVisible} onClose={() => onClose()} />
-        </View>
-      </View>
-    </SafeAreaView>
-  );
+  const onPlayAgain = () => {
+    setVisible(false);
+    setCurrentQue(0);
+    clearState();
+    setLoading(true);
+    const func = async () => {
+      try {
+        getQuestions();
+      } finally {
+        setLoading(false);
+      }
+    };
+    func();
+  };
+
+  const renderComponent = () => {
+    if (!isLoading && questions.length > 0) {
+      return (
+        <SafeAreaView style={{flex: 1}}>
+          <View style={s.container}>
+            <View style={s.queContainer}>
+              <Image style={s.image} source={QuestionMark} />
+              <HTML
+                html={questions[currentQue]?.question}
+                baseFontStyle={{fontSize: 16, fontWeight: 'bold'}}
+              />
+            </View>
+            <Answers
+              onPress={onAnswer}
+              press={press}
+              correctAnswer={questions[currentQue].correct_answer}
+              answers={questions[currentQue].answers}
+            />
+            {/*<ScoreBoard />*/}
+            <View>
+              <ModelContainer
+                score={score}
+                onPlayAgain={() => onPlayAgain()}
+                isVisible={isVisible}
+                onClose={() => onClose()}
+              />
+            </View>
+          </View>
+        </SafeAreaView>
+      );
+    } else {
+      return (
+        <SafeAreaView style={{flex: 1}}>
+          <SkypeIndicator />
+        </SafeAreaView>
+      );
+    }
+  };
+
+  return renderComponent();
 };
 
 const s = StyleSheet.create({
@@ -82,6 +124,8 @@ const s = StyleSheet.create({
     marginBottom: 10,
   },
 });
-const mapStateToProps = ({Quiz: {questions}}) => ({questions});
+const mapStateToProps = ({Quiz: {questions, score}}) => ({questions, score});
 
-export default connect(mapStateToProps, {countScore})(QuizScreen);
+export default connect(mapStateToProps, {countScore, clearState, getQuestions})(
+  QuizScreen,
+);

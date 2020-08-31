@@ -6,7 +6,7 @@ import {View, StyleSheet, TouchableOpacity} from 'react-native';
 const Answers = ({answers, onPress, correctAnswer, press}) => {
   return (
     <View style={s.mainContainer}>
-      {answers.map((item, index) => {
+      {answers?.map((item, index) => {
         return (
           <TouchableOpacity
             key={index}

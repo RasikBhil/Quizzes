@@ -22,6 +22,8 @@ const reducer = (state = intialState, action) => {
       return {...state, questions: question};
     case Types.COUNT_SCORE:
       return {...state, score: action.payload};
+    case Types.CLEAR_STATE:
+      return {...intialState};
     default:
       return {...state};
   }

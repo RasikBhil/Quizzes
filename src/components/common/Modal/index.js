@@ -11,12 +11,18 @@ import {scale} from 'react-native-size-matters';
 import {colors} from '../../../theme';
 import {Neomorph} from '../index';
 
-const ModelContainer = ({isVisible, onClose}) => {
+const ModelContainer = ({isVisible, onClose, score, onPlayAgain}) => {
   return (
     <Modal transparent={true} visible={isVisible}>
       <SafeAreaView style={s.container}>
         <View style={s.childContainer}>
-          <TouchableOpacity style={s.button} onPress={onClose}>
+          <View style={s.button}>
+            <Neomorph inner style={s.scoreContainer}>
+              <Text style={s.scoreText}>{'SCOREBOARD'}</Text>
+              <Text style={s.score}>{`SCORE: ${score}/10`}</Text>
+            </Neomorph>
+          </View>
+          <TouchableOpacity style={s.button} onPress={onPlayAgain}>
             <Neomorph style={s.neoButton}>
               <Text style={s.buttonText}>{'Play again ?'}</Text>
             </Neomorph>
@@ -56,6 +62,23 @@ const s = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
+    fontWeight: 'bold',
+  },
+  scoreContainer: {
+    width: scale(250),
+    height: scale(100),
+    marginTop: 0,
+    justifyContent: 'flex-start',
+    paddingVertical: 20,
+    alignItems: 'center',
+  },
+  scoreText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
+  },
+  score: {
+    marginTop: 10,
     fontWeight: 'bold',
   },
 });

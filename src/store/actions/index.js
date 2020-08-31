@@ -25,3 +25,9 @@ export const countScore = (answer) => (dispatch, getState) => {
     payload: score,
   });
 };
+
+export const clearState = () => (dispatch) => {
+  return dispatch({
+    type: Types.CLEAR_STATE,
+  });
+};

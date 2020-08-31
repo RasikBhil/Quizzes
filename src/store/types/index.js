@@ -6,3 +6,5 @@ export const GET_QUESTIONS_ERROR = `${QPREFIX}/GET_QUESTIONS_ERROR`;
 
 const CPREFIX = '@@count';
 export const COUNT_SCORE = `${CPREFIX}/COUNT_SCORE`;
+
+export const CLEAR_STATE = 'CLEAR_STATE';

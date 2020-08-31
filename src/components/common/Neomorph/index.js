@@ -2,8 +2,8 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Neomorph as Neo} from 'react-native-neomorph-shadows';
 
-const Neomorph = ({children, style}) => {
-  return <Neo style={{...s.container, ...style}}>{children}</Neo>;
+const Neomorph = ({children, style,inner}) => {
+  return <Neo inner={inner} style={{...s.container, ...style}}>{children}</Neo>;
 };
 
 const s = StyleSheet.create({
