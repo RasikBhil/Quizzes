@@ -10,7 +10,7 @@ import {countScore} from '../../store/actions';
 import ScoreBoard from './widget/ScoreBoard';
 import {ModelContainer} from '../common';
 
-const QuizScreen = ({questions, countScore}) => {
+const QuizScreen = ({questions, countScore, navigation}) => {
   const [currentQue, setCurrentQue] = useState(0);
   const [press, setPress] = useState(false);
   const [isVisible, setVisible] = useState(false);
@@ -33,6 +33,7 @@ const QuizScreen = ({questions, countScore}) => {
 
   const onClose = () => {
     setVisible(false);
+    navigation.navigate('Landing');
   };
 
   return (

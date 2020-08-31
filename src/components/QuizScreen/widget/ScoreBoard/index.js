@@ -17,7 +17,6 @@ const ScoreBoard = ({score}) => {
 
 const s = StyleSheet.create({
   container: {
-   // flex: 0.5,
     paddingVertical: 5,
     alignItems: 'center',
     backgroundColor: 'cyan',
