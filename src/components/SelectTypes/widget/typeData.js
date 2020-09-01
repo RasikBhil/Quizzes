@@ -1,4 +1,4 @@
-export const type = [
+export const typeData = [
   {
     label: 'Any Type',
     value: 'any',

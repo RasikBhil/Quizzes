@@ -1,4 +1,4 @@
-export const difficulty = [
+export const difficultyData = [
   {
     label: 'Any Difficulty',
     value: 'any',

@@ -1,4 +1,4 @@
-export const category = [
+export const categoryData = [
   {
     label: 'General Knowledge',
     value: 9,

@@ -11,18 +11,11 @@ import Form from './widget/form';
 import {Neomorph} from '../common';
 import {scale} from 'react-native-size-matters';
 
-const SelectTypes = () => {
+const SelectTypes = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={s.container}>
-        <Form />
-        <View style={s.buttonContainer}>
-          <TouchableOpacity>
-            <Neomorph style={s.button}>
-              <Text style={s.buttonText}>{'START'}</Text>
-            </Neomorph>
-          </TouchableOpacity>
-        </View>
+        <Form navigation={navigation} />
       </View>
     </SafeAreaView>
   );

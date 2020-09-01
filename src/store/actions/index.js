@@ -1,10 +1,10 @@
 import * as Types from '../types';
 import axios from 'axios';
 
-export const getQuestions = () => (dispatch) => {
+export const getQuestions = ({category, difficulty, type}) => (dispatch) => {
   const getPromise = async () => {
     const {data} = await axios.get(
-      'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple',
+      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=${type}`,
     );
     return data;
   };

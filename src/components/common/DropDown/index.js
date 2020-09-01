@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const DropDown = ({data, onChangeItem}) => {
   return (
     <RNPickerSelect
-      onValueChange={(value) => console.log(value)}
+      onValueChange={onChangeItem}
       items={data}
       useNativeAndroidPickerStyle={false}
       style={pickerSelectStyles}
