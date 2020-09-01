@@ -40,7 +40,7 @@ const LandingScreen = ({navigation, getQuestions}) => {
           </Neomorph>
           {/*<Neomorph style={{height: 40, alignItems: 'center'}}>*/}
           {/*  <TouchableOpacity onPress={() => onStartQuiz()}>*/}
-          {/*    <Text style={{fontWeight: 'bold'}}>{'RESUME'}</Text>*/}
+          {/*    <Text style={{fontWeight: 'bold'}}>{'START QUIZ'}</Text>*/}
           {/*  </TouchableOpacity>*/}
           {/*</Neomorph>*/}
         </View>

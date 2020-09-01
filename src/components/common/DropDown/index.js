@@ -1,28 +1,57 @@
 import React from 'react';
 import RNPickerSelect from 'react-native-picker-select';
 import {View, StyleSheet} from 'react-native';
+import {Neomorph} from '../index';
+import {scale} from 'react-native-size-matters';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const DropDown = ({data, onChangeItem}) => {
   return (
-    <View style={s.container}>
-      <RNPickerSelect
-        onValueChange={(value) => console.log(value)}
-        items={data}
-        Icon={() => {
-          return <View style={s.downIcon} />;
-        }}
-      />
-    </View>
+    <RNPickerSelect
+      onValueChange={(value) => console.log(value)}
+      items={data}
+      useNativeAndroidPickerStyle={false}
+      style={pickerSelectStyles}
+      Icon={() => {
+        return <Icon name={'chevron-down'} size={scale(20)} />;
+      }}
+    />
   );
 };
 
+const pickerSelectStyles = StyleSheet.create({
+  inputIOS: {
+    fontSize: 16,
+    marginVertical: 7,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderRadius: 4,
+    color: 'black',
+    backgroundColor: '#FFFFFF',
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
+  inputAndroid: {
+    fontSize: 16,
+    marginVertical: 7,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    color: 'black',
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
+  iconContainer: {
+    top: scale(16),
+    right: 5,
+  },
+});
+
 const s = StyleSheet.create({
   container: {
-    marginVertical: 5,
-    width: '100%',
-    backgroundColor: '#FFFFFF',
-    padding: 10,
+    marginVertical: scale(5),
+    //padding: scale(10),
     borderRadius: 5,
+    backgroundColor: '#FFFFFF',
   },
   downIcon: {
     backgroundColor: 'transparent',
