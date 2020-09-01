@@ -1,3 +1,4 @@
 import LandingScreen from './LandingScreen';
 import QuizScreen from './QuizScreen';
-export {LandingScreen, QuizScreen};
+import SelectTypes from './SelectTypes';
+export {LandingScreen, QuizScreen, SelectTypes};

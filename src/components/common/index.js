@@ -1,3 +1,4 @@
 import Neomorph from './Neomorph';
 import ModelContainer from './Modal';
-export {Neomorph, ModelContainer};
+import DropDown from './DropDown';
+export {Neomorph, ModelContainer, DropDown};

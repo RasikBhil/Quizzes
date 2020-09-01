@@ -31,11 +31,19 @@ const LandingScreen = ({navigation, getQuestions}) => {
   const ContentView = () => {
     if (!Loading) {
       return (
-        <Neomorph style={{height: 40, alignItems: 'center'}}>
-          <TouchableOpacity onPress={() => onStartQuiz()}>
-            <Text style={{fontWeight: 'bold'}}>{'START QUIZ'}</Text>
-          </TouchableOpacity>
-        </Neomorph>
+        <View>
+          <Neomorph style={{height: 40, alignItems: 'center'}}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SelectTypes')}>
+              <Text style={{fontWeight: 'bold'}}>{'START QUIZ'}</Text>
+            </TouchableOpacity>
+          </Neomorph>
+          {/*<Neomorph style={{height: 40, alignItems: 'center'}}>*/}
+          {/*  <TouchableOpacity onPress={() => onStartQuiz()}>*/}
+          {/*    <Text style={{fontWeight: 'bold'}}>{'RESUME'}</Text>*/}
+          {/*  </TouchableOpacity>*/}
+          {/*</Neomorph>*/}
+        </View>
       );
     } else {
       return <SkypeIndicator />;
