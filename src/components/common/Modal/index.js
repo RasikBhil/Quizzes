@@ -11,7 +11,7 @@ import {scale} from 'react-native-size-matters';
 import {colors} from '../../../theme';
 import {Neomorph} from '../index';
 
-const ModelContainer = ({isVisible, onClose, score, onPlayAgain}) => {
+const ModelContainer = ({isVisible, onClose, score, onPlayAgain, total}) => {
   return (
     <Modal transparent={true} visible={isVisible}>
       <SafeAreaView style={s.container}>
@@ -19,7 +19,7 @@ const ModelContainer = ({isVisible, onClose, score, onPlayAgain}) => {
           <View style={s.button}>
             <Neomorph inner style={s.scoreContainer}>
               <Text style={s.scoreText}>{'SCOREBOARD'}</Text>
-              <Text style={s.score}>{`SCORE: ${score}/10`}</Text>
+              <Text style={s.score}>{`SCORE: ${score}/${total}`}</Text>
             </Neomorph>
           </View>
           <TouchableOpacity style={s.button} onPress={onPlayAgain}>

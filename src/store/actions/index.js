@@ -1,10 +1,12 @@
 import * as Types from '../types';
 import axios from 'axios';
 
-export const getQuestions = ({category, difficulty, type}) => (dispatch) => {
+export const getQuestions = ({amount, category, difficulty, type}) => (
+  dispatch,
+) => {
   const getPromise = async () => {
     const {data} = await axios.get(
-      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=${type}`,
+      `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`,
     );
     return data;
   };
@@ -29,5 +31,16 @@ export const countScore = (answer) => (dispatch, getState) => {
 export const clearState = () => (dispatch) => {
   return dispatch({
     type: Types.CLEAR_STATE,
+  });
+};
+
+export const prevSelected = ({category, difficulty, type}) => (dispatch) => {
+  return dispatch({
+    type: Types.SAVE_TYPES,
+    payload: {
+      category,
+      difficulty,
+      type,
+    },
   });
 };

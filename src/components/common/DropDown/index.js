@@ -5,11 +5,12 @@ import {Neomorph} from '../index';
 import {scale} from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const DropDown = ({data, onChangeItem}) => {
+const DropDown = ({data, onChangeItem, value}) => {
   return (
     <RNPickerSelect
       onValueChange={onChangeItem}
       items={data}
+      value={value}
       useNativeAndroidPickerStyle={false}
       style={pickerSelectStyles}
       Icon={() => {

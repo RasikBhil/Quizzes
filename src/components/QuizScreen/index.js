@@ -18,11 +18,14 @@ const QuizScreen = ({
   clearState,
   score,
   getQuestions,
+  selected,
 }) => {
   const [currentQue, setCurrentQue] = useState(0);
   const [press, setPress] = useState(false);
   const [isVisible, setVisible] = useState(false);
   const [isLoading, setLoading] = useState(false);
+
+  console.log('SELECTED::', selected);
 
   const onAnswer = (answer) => {
     countScore(answer);
@@ -53,7 +56,7 @@ const QuizScreen = ({
     setLoading(true);
     const func = async () => {
       try {
-        getQuestions();
+        getQuestions(selected);
       } finally {
         setLoading(false);
       }
@@ -83,6 +86,7 @@ const QuizScreen = ({
             <View>
               <ModelContainer
                 score={score}
+                total={questions.length}
                 onPlayAgain={() => onPlayAgain()}
                 isVisible={isVisible}
                 onClose={() => onClose()}
@@ -124,7 +128,11 @@ const s = StyleSheet.create({
     marginBottom: 10,
   },
 });
-const mapStateToProps = ({Quiz: {questions, score}}) => ({questions, score});
+const mapStateToProps = ({Quiz: {questions, score, selected}}) => ({
+  questions,
+  score,
+  selected,
+});
 
 export default connect(mapStateToProps, {countScore, clearState, getQuestions})(
   QuizScreen,

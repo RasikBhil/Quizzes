@@ -12,7 +12,7 @@ import {difficultyData} from './difficultyData';
 import {typeData} from './typeData';
 import {scale} from 'react-native-size-matters';
 import {colors} from '../../../theme';
-import {getQuestions} from '../../../store/actions';
+import {getQuestions, prevSelected} from '../../../store/actions';
 import {connect} from 'react-redux';
 
 const dropDown = [
@@ -36,24 +36,11 @@ const dropDown = [
   },
 ];
 
-const Form = ({getQuestions, navigation}) => {
+const Form = ({getQuestions, navigation, prevSelected}) => {
   const [category, setCategory] = useState(9);
   const [difficulty, setDifficulty] = useState('easy');
   const [type, setType] = useState('multiple');
-
-  // const onCategoryChange = (value) => {
-  //   console.log('CATEGORY::', value);
-  //   setCategory(value);
-  // };
-  // const onDifficultyChange = (value) => {
-  //   console.log('DIFFICULTY::', value);
-  //   setDifficulty(value);
-  // };
-  //
-  // const onTypeChange = (value) => {
-  //   console.log('TYPE::', value);
-  //   setType(value);
-  // };
+  const [amount, setAmount] = useState('10');
 
   const onItemChange = (value, key) => {
     switch (key) {
@@ -64,21 +51,29 @@ const Form = ({getQuestions, navigation}) => {
       case 'DIFFICULTY':
         console.log('DIFFICULTY', value);
         setDifficulty(value);
+        break;
       case 'TYPE':
         console.log('TYPE', value);
         setType(value);
+        break;
     }
   };
 
   const onStart = () => {
     const func = async () => {
       try {
-        getQuestions({category, difficulty, type});
+        getQuestions({amount, category, difficulty, type});
+        prevSelected({category, difficulty, type});
       } finally {
         navigation.navigate('Quiz');
       }
     };
     func();
+  };
+
+  const onInputChange = (question) => {
+    console.log('question', question);
+    setAmount(question);
   };
 
   return (
@@ -90,7 +85,9 @@ const Form = ({getQuestions, navigation}) => {
             <TextInput
               style={{padding: 0, fontSize: scale(16)}}
               keyboardType={'numeric'}
+              value={amount}
               placeholder={'enter questions'}
+              onChangeText={onInputChange}
             />
           </View>
         </View>
@@ -101,6 +98,15 @@ const Form = ({getQuestions, navigation}) => {
               <DropDown
                 onChangeItem={(value) => onItemChange(value, item.type)}
                 data={item.data}
+                value={
+                  item.type === 'CATEGORY'
+                    ? category
+                    : item.type === 'DIFFICULTY'
+                    ? difficulty
+                    : item.type === 'TYPE'
+                    ? type
+                    : null
+                }
               />
             </View>
           );
@@ -152,4 +158,4 @@ const s = StyleSheet.create({
   },
 });
 
-export default connect(null, {getQuestions})(Form);
+export default connect(null, {getQuestions, prevSelected})(Form);

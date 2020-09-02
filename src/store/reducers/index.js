@@ -4,6 +4,7 @@ import getRandomAns from '../../utils/getRandomAns';
 const intialState = {
   questions: [],
   score: 0,
+  selected: {},
 };
 
 const reducer = (state = intialState, action) => {
@@ -24,6 +25,8 @@ const reducer = (state = intialState, action) => {
       return {...state, score: action.payload};
     case Types.CLEAR_STATE:
       return {...intialState};
+    case Types.SAVE_TYPES:
+      return {...state, selected: {...action.payload}};
     default:
       return {...state};
   }
