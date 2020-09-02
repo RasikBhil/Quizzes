@@ -10,7 +10,7 @@ import {Neomorph} from '../common';
 import {getQuestions} from '../../store/actions';
 import {SkypeIndicator} from 'react-native-indicators';
 import {connect} from 'react-redux';
-import {colors} from '../../theme';
+import {colors, fonts} from '../../theme';
 
 const LandingScreen = ({navigation, getQuestions}) => {
   const [Loading, setLoading] = useState(false);
@@ -35,7 +35,7 @@ const LandingScreen = ({navigation, getQuestions}) => {
           <Neomorph style={{height: 40, alignItems: 'center'}}>
             <TouchableOpacity
               onPress={() => navigation.navigate('SelectTypes')}>
-              <Text style={{fontWeight: 'bold'}}>{'START QUIZ'}</Text>
+              <Text style={{fontFamily: fonts.bold}}>{'START QUIZ'}</Text>
             </TouchableOpacity>
           </Neomorph>
           {/*<Neomorph style={{height: 40, alignItems: 'center'}}>*/}

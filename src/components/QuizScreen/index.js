@@ -5,7 +5,7 @@ import HTML from 'react-native-render-html';
 import QuestionMark from '../../assets/icons/question.png';
 import Answers from './widget/Answers';
 import {scale} from 'react-native-size-matters';
-import {colors} from '../../theme';
+import {colors, fonts} from '../../theme';
 import {countScore, clearState, getQuestions} from '../../store/actions';
 import {SkypeIndicator} from 'react-native-indicators';
 import ScoreBoard from './widget/ScoreBoard';
@@ -73,7 +73,7 @@ const QuizScreen = ({
               <Image style={s.image} source={QuestionMark} />
               <HTML
                 html={questions[currentQue]?.question}
-                baseFontStyle={{fontSize: 16, fontWeight: 'bold'}}
+                baseFontStyle={{fontSize: 16, fontFamily: fonts.lato_bold}}
               />
             </View>
             <Answers

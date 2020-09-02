@@ -5,16 +5,25 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  Image,
+  ScrollView,
 } from 'react-native';
 import {colors} from '../../theme';
 import Form from './widget/form';
 import {Neomorph} from '../common';
+import Earth from '../../assets/icons/world.png';
 import {scale} from 'react-native-size-matters';
 
 const SelectTypes = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={s.container}>
+        <View style={{alignItems: 'center', paddingVertical: scale(20)}}>
+          <Image
+            style={{height: scale(128), width: scale(128)}}
+            source={Earth}
+          />
+        </View>
         <Form navigation={navigation} />
       </View>
     </SafeAreaView>

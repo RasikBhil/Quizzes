@@ -4,6 +4,7 @@ import {View, StyleSheet} from 'react-native';
 import {Neomorph} from '../index';
 import {scale} from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {fonts} from '../../../theme';
 
 const DropDown = ({data, onChangeItem, value}) => {
   return (
@@ -27,6 +28,7 @@ const pickerSelectStyles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 10,
     borderRadius: 4,
+    fontFamily: fonts.regular,
     color: 'black',
     backgroundColor: '#FFFFFF',
     paddingRight: 30, // to ensure the text is never behind the icon
@@ -35,6 +37,7 @@ const pickerSelectStyles = StyleSheet.create({
     fontSize: 16,
     marginVertical: 7,
     paddingHorizontal: 10,
+    fontFamily: fonts.regular,
     paddingVertical: 8,
     backgroundColor: '#FFFFFF',
     borderRadius: 8,

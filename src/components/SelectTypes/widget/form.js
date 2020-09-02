@@ -5,13 +5,14 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import {categoryData} from './categoryData';
 import {DropDown, Neomorph} from '../../common';
 import {difficultyData} from './difficultyData';
 import {typeData} from './typeData';
 import {scale} from 'react-native-size-matters';
-import {colors} from '../../../theme';
+import {colors, fonts} from '../../../theme';
 import {getQuestions, prevSelected} from '../../../store/actions';
 import {connect} from 'react-redux';
 
@@ -63,7 +64,7 @@ const Form = ({getQuestions, navigation, prevSelected}) => {
     const func = async () => {
       try {
         getQuestions({amount, category, difficulty, type});
-        prevSelected({category, difficulty, type});
+        prevSelected({amount, category, difficulty, type});
       } finally {
         navigation.navigate('Quiz');
       }
@@ -78,40 +79,42 @@ const Form = ({getQuestions, navigation, prevSelected}) => {
 
   return (
     <View style={{flex: 1}}>
-      <View style={{paddingHorizontal: '10%', flex: 1}}>
-        <View style={s.pickerContainer}>
-          <Text style={s.labelText}>{'NUMBER OF QUESTIONS:'}</Text>
-          <View style={s.inputContainer}>
-            <TextInput
-              style={{padding: 0, fontSize: scale(16)}}
-              keyboardType={'numeric'}
-              value={amount}
-              placeholder={'enter questions'}
-              onChangeText={onInputChange}
-            />
-          </View>
-        </View>
-        {dropDown.map((item) => {
-          return (
-            <View key={item.key} style={s.pickerContainer}>
-              <Text style={s.labelText}>{item.name}</Text>
-              <DropDown
-                onChangeItem={(value) => onItemChange(value, item.type)}
-                data={item.data}
-                value={
-                  item.type === 'CATEGORY'
-                    ? category
-                    : item.type === 'DIFFICULTY'
-                    ? difficulty
-                    : item.type === 'TYPE'
-                    ? type
-                    : null
-                }
+      <ScrollView>
+        <View style={{paddingHorizontal: '10%', flex: 1}}>
+          <View style={s.pickerContainer}>
+            <Text style={s.labelText}>{'NUMBER OF QUESTIONS:'}</Text>
+            <View style={s.inputContainer}>
+              <TextInput
+                style={{padding: 0, fontSize: scale(16)}}
+                keyboardType={'numeric'}
+                value={amount}
+                placeholder={'enter questions'}
+                onChangeText={onInputChange}
               />
             </View>
-          );
-        })}
-      </View>
+          </View>
+          {dropDown.map((item) => {
+            return (
+              <View key={item.key} style={s.pickerContainer}>
+                <Text style={s.labelText}>{item.name}</Text>
+                <DropDown
+                  onChangeItem={(value) => onItemChange(value, item.type)}
+                  data={item.data}
+                  value={
+                    item.type === 'CATEGORY'
+                      ? category
+                      : item.type === 'DIFFICULTY'
+                      ? difficulty
+                      : item.type === 'TYPE'
+                      ? type
+                      : null
+                  }
+                />
+              </View>
+            );
+          })}
+        </View>
+      </ScrollView>
       <View style={s.buttonContainer}>
         <TouchableOpacity onPress={() => onStart()}>
           <Neomorph style={s.button}>
@@ -128,7 +131,7 @@ const s = StyleSheet.create({
     marginVertical: scale(10),
   },
   labelText: {
-    fontWeight: 'bold',
+    fontFamily: fonts.bold,
   },
   inputContainer: {
     marginTop: 5,
@@ -152,9 +155,9 @@ const s = StyleSheet.create({
     borderTopStartRadius: 5,
   },
   buttonText: {
-    fontWeight: 'bold',
     fontSize: 16,
     color: 'white',
+    fontFamily: fonts.bold,
   },
 });
 

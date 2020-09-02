@@ -1,6 +1,6 @@
 import React from 'react';
 import HTML from 'react-native-render-html';
-import {colors} from '../../../../theme';
+import {colors, fonts} from '../../../../theme';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 
 const Answers = ({answers, onPress, correctAnswer, press}) => {
@@ -20,10 +20,7 @@ const Answers = ({answers, onPress, correctAnswer, press}) => {
                 : colors.jordyBlue,
             }}>
             <View>
-              <HTML
-                baseFontStyle={{fontSize: 14, fontWeight: 'bold'}}
-                html={item}
-              />
+              <HTML baseFontStyle={s.optionsFonts} html={item} />
             </View>
           </TouchableOpacity>
         );
@@ -50,6 +47,10 @@ const s = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 5,
     borderRadius: 4,
+  },
+  optionsFonts: {
+    fontSize: 14,
+    fontFamily: fonts.lato_bold,
   },
 });
 export default Answers;

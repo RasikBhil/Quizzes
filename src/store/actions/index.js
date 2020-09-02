@@ -34,10 +34,13 @@ export const clearState = () => (dispatch) => {
   });
 };
 
-export const prevSelected = ({category, difficulty, type}) => (dispatch) => {
+export const prevSelected = ({amount, category, difficulty, type}) => (
+  dispatch,
+) => {
   return dispatch({
     type: Types.SAVE_TYPES,
     payload: {
+      amount,
       category,
       difficulty,
       type,

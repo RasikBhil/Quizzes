@@ -6,4 +6,13 @@ const colors = {
   amaranthPink: '#F19CBB',
 };
 
-export {colors};
+const fonts = {
+  regular: 'InputSans-Regular',
+  medium: 'InputSans-Medium',
+  bold: 'InputSans-Bold',
+  lato_bold: 'Lato-Bold',
+  lato_regular: 'Lato-Regular',
+  lato_medium: 'Lato-Semibold',
+};
+
+export {colors, fonts};

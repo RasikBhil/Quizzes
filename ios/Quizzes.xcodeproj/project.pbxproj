@@ -20,6 +20,12 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9BCEAC4473A208EC86FB65F2 /* libPods-Quizzes-QuizzesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A793D8B093C47494B5CFF7 /* libPods-Quizzes-QuizzesTests.a */; };
 		CD5F40A62F7953F8639990FB /* libPods-Quizzes-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDCA6016BC919B78AD1F2D42 /* libPods-Quizzes-tvOS.a */; };
+		3B392B7E4F9D49E08B52C5D1 /* InputSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89A037A0516B4F5EAD360696 /* InputSans-Bold.ttf */; };
+		9272B1E702F047FE8E2A1D4A /* InputSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C5996C0FF464433A6B1E4F6 /* InputSans-Medium.ttf */; };
+		0E0316ECAEB74AAD84EFEC33 /* InputSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C31A6B0801584A58B816D161 /* InputSans-Regular.ttf */; };
+		EB19FB5DF43F4839B0E98DBF /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6D28827BCC54A05B956CD0E /* Lato-Black.ttf */; };
+		E0CBB6DE9D69458F88DBA039 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68FBA38F4E414C1B842AA0BE /* Lato-Bold.ttf */; };
+		A95D6544E8344D04A45104FA /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D266B470EB3340648C9CD00B /* Lato-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +89,12 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F7171B00A6604C02832C701B /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		FDCA6016BC919B78AD1F2D42 /* libPods-Quizzes-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Quizzes-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89A037A0516B4F5EAD360696 /* InputSans-Bold.ttf */ = {isa = PBXFileReference; name = "InputSans-Bold.ttf"; path = "../src/assets/fonts/InputSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6C5996C0FF464433A6B1E4F6 /* InputSans-Medium.ttf */ = {isa = PBXFileReference; name = "InputSans-Medium.ttf"; path = "../src/assets/fonts/InputSans-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C31A6B0801584A58B816D161 /* InputSans-Regular.ttf */ = {isa = PBXFileReference; name = "InputSans-Regular.ttf"; path = "../src/assets/fonts/InputSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D6D28827BCC54A05B956CD0E /* Lato-Black.ttf */ = {isa = PBXFileReference; name = "Lato-Black.ttf"; path = "../src/assets/fonts/Lato-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		68FBA38F4E414C1B842AA0BE /* Lato-Bold.ttf */ = {isa = PBXFileReference; name = "Lato-Bold.ttf"; path = "../src/assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D266B470EB3340648C9CD00B /* Lato-Regular.ttf */ = {isa = PBXFileReference; name = "Lato-Regular.ttf"; path = "../src/assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +245,12 @@
 				ADDFD9A11ADD48B5A0FC8EAB /* Octicons.ttf */,
 				AD220CB8C6AF4FE89DD6480D /* SimpleLineIcons.ttf */,
 				C8224113F0D04B73ACB41F2A /* Zocial.ttf */,
+				89A037A0516B4F5EAD360696 /* InputSans-Bold.ttf */,
+				6C5996C0FF464433A6B1E4F6 /* InputSans-Medium.ttf */,
+				C31A6B0801584A58B816D161 /* InputSans-Regular.ttf */,
+				D6D28827BCC54A05B956CD0E /* Lato-Black.ttf */,
+				68FBA38F4E414C1B842AA0BE /* Lato-Bold.ttf */,
+				D266B470EB3340648C9CD00B /* Lato-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -381,6 +399,12 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				3B392B7E4F9D49E08B52C5D1 /* InputSans-Bold.ttf in Resources */,
+				9272B1E702F047FE8E2A1D4A /* InputSans-Medium.ttf in Resources */,
+				0E0316ECAEB74AAD84EFEC33 /* InputSans-Regular.ttf in Resources */,
+				EB19FB5DF43F4839B0E98DBF /* Lato-Black.ttf in Resources */,
+				E0CBB6DE9D69458F88DBA039 /* Lato-Bold.ttf in Resources */,
+				A95D6544E8344D04A45104FA /* Lato-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
