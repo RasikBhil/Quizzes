@@ -14,7 +14,7 @@
 *  run `cd ios && pod install`
 
 ## run on ios
-* yarn ios or npm run ios or npx react-native run-ios
+* `yarn ios` or `npm run ios` or `npx react-native run-ios`
 
 ## run on android
-* yarn android or npm run android or npx react-native run-android
+* `yarn android` or `npm run android` or `npx react-native run-android`
