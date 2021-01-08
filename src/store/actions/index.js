@@ -20,7 +20,6 @@ export const countScore = (answer) => (dispatch, getState) => {
   let score = getState().Quiz.score;
   if (answer) {
     score = getState().Quiz.score + 1;
-    console.log('---', score);
   }
   return dispatch({
     type: Types.COUNT_SCORE,

@@ -23,12 +23,12 @@ const ModelContainer = ({isVisible, onClose, score, onPlayAgain, total}) => {
             </Neomorph>
           </View>
           <TouchableOpacity style={s.button} onPress={onPlayAgain}>
-            <Neomorph style={s.neoButton}>
+            <Neomorph inner style={s.neoButton}>
               <Text style={s.buttonText}>{'Play again ?'}</Text>
             </Neomorph>
           </TouchableOpacity>
           <TouchableOpacity style={s.button} onPress={onClose}>
-            <Neomorph style={s.neoButton}>
+            <Neomorph inner style={s.neoButton}>
               <Text style={s.buttonText}>{'Close'}</Text>
             </Neomorph>
           </TouchableOpacity>
@@ -54,7 +54,6 @@ const s = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    //  backgroundColor: colors.yellow,
     alignSelf: 'center',
   },
   neoButton: {

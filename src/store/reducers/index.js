@@ -8,7 +8,6 @@ const intialState = {
 };
 
 const reducer = (state = intialState, action) => {
-  console.log('LOGGER', action);
   switch (action.type) {
     case Types.GET_QUESTIONS_SUCCESS:
       const {results} = action.payload;

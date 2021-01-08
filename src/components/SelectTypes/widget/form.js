@@ -46,15 +46,12 @@ const Form = ({getQuestions, navigation, prevSelected}) => {
   const onItemChange = (value, key) => {
     switch (key) {
       case 'CATEGORY':
-        console.log('CATEGORY::', value);
         setCategory(value);
         break;
       case 'DIFFICULTY':
-        console.log('DIFFICULTY', value);
         setDifficulty(value);
         break;
       case 'TYPE':
-        console.log('TYPE', value);
         setType(value);
         break;
     }
@@ -73,7 +70,6 @@ const Form = ({getQuestions, navigation, prevSelected}) => {
   };
 
   const onInputChange = (question) => {
-    console.log('question', question);
     setAmount(question);
   };
 

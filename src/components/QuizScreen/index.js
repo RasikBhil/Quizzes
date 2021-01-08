@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, View, Text, StyleSheet, Image} from 'react-native';
+import {SafeAreaView, View, StyleSheet, Image} from 'react-native';
 import {connect} from 'react-redux';
 import HTML from 'react-native-render-html';
 import QuestionMark from '../../assets/icons/question.png';
@@ -8,7 +8,6 @@ import {scale} from 'react-native-size-matters';
 import {colors, fonts} from '../../theme';
 import {countScore, clearState, getQuestions} from '../../store/actions';
 import {SkypeIndicator} from 'react-native-indicators';
-import ScoreBoard from './widget/ScoreBoard';
 import {ModelContainer} from '../common';
 
 const QuizScreen = ({
@@ -24,8 +23,6 @@ const QuizScreen = ({
   const [press, setPress] = useState(false);
   const [isVisible, setVisible] = useState(false);
   const [isLoading, setLoading] = useState(false);
-
-  console.log('SELECTED::', selected);
 
   const onAnswer = (answer) => {
     countScore(answer);
@@ -82,7 +79,6 @@ const QuizScreen = ({
               correctAnswer={questions[currentQue].correct_answer}
               answers={questions[currentQue].answers}
             />
-            {/*<ScoreBoard />*/}
             <View>
               <ModelContainer
                 score={score}

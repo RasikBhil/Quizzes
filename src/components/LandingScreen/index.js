@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {
   SafeAreaView,
   View,
@@ -7,47 +7,19 @@ import {
   StyleSheet,
 } from 'react-native';
 import {Neomorph} from '../common';
-import {getQuestions} from '../../store/actions';
-import {SkypeIndicator} from 'react-native-indicators';
-import {connect} from 'react-redux';
 import {colors, fonts} from '../../theme';
 
-const LandingScreen = ({navigation, getQuestions}) => {
-  const [Loading, setLoading] = useState(false);
-
-  const onStartQuiz = () => {
-    const func = async () => {
-      try {
-        setLoading(true);
-        await getQuestions();
-      } finally {
-        setLoading(false);
-        navigation.navigate('Quiz');
-      }
-    };
-    func();
-  };
-
+const LandingScreen = ({navigation}) => {
   const ContentView = () => {
-    if (!Loading) {
-      return (
-        <View>
-          <Neomorph style={{height: 40, alignItems: 'center'}}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SelectTypes')}>
-              <Text style={{fontFamily: fonts.bold}}>{'START QUIZ'}</Text>
-            </TouchableOpacity>
-          </Neomorph>
-          {/*<Neomorph style={{height: 40, alignItems: 'center'}}>*/}
-          {/*  <TouchableOpacity onPress={() => onStartQuiz()}>*/}
-          {/*    <Text style={{fontWeight: 'bold'}}>{'START QUIZ'}</Text>*/}
-          {/*  </TouchableOpacity>*/}
-          {/*</Neomorph>*/}
-        </View>
-      );
-    } else {
-      return <SkypeIndicator />;
-    }
+    return (
+      <View>
+        <Neomorph style={{height: 40, alignItems: 'center'}}>
+          <TouchableOpacity onPress={() => navigation.navigate('SelectTypes')}>
+            <Text style={{fontFamily: fonts.bold}}>{'START QUIZ'}</Text>
+          </TouchableOpacity>
+        </Neomorph>
+      </View>
+    );
   };
 
   return (
@@ -66,6 +38,4 @@ const s = StyleSheet.create({
   },
 });
 
-const mapStateToProps = ({Quiz: {questions}}) => ({questions});
-
-export default connect(mapStateToProps, {getQuestions})(LandingScreen);
+export default LandingScreen;

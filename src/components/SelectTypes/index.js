@@ -1,16 +1,7 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-} from 'react-native';
+import {SafeAreaView, View, StyleSheet, Image} from 'react-native';
 import {colors} from '../../theme';
 import Form from './widget/form';
-import {Neomorph} from '../common';
 import Earth from '../../assets/icons/world.png';
 import {scale} from 'react-native-size-matters';
 

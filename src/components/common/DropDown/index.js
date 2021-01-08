@@ -1,7 +1,6 @@
 import React from 'react';
 import RNPickerSelect from 'react-native-picker-select';
-import {View, StyleSheet} from 'react-native';
-import {Neomorph} from '../index';
+import {StyleSheet} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {fonts} from '../../../theme';
