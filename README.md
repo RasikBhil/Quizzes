@@ -1,5 +1,9 @@
 # Quizzes
 
+![Select Screen](./src/assets/images/Select.png)
+![Quiz Screen](./src/assets/images/Quiz.png)
+![Score Board](./src/assets/images/scoreBoard.png)
+
 ## Clone 
 * git clone `git clone https://github.com/RasikBhil/Quizzes.git`
 
