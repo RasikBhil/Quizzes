@@ -1,8 +1,4 @@
 # Quizzes
-
-![Select Screen](./src/assets/images/Select.png)
-![Quiz Screen](./src/assets/images/Quiz.png)
-![Score Board](./src/assets/images/scoreBoard.png)
 <p align="center">
   <img src="./src/assets/images/Select.png" width="256" height="455">
   <img src="./src/assets/images/Quiz.png" width="256" height="455">
